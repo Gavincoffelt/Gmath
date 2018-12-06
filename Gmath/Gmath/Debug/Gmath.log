@@ -1,4 +1,4 @@
 ﻿  mathutilities.cpp
-c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(46): warning C4715: 'abs': not all control paths return a value
 c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(34): warning C4715: 'clamp': not all control paths return a value
+c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(46): warning C4715: 'abs': not all control paths return a value
   Gmath.vcxproj -> C:\Users\s189067\source\repos\Gmath\Debug\Gmath.lib

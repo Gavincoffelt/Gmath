@@ -55,7 +55,36 @@ int pow(int base, int power)
 	return base;
 }
 
+int nextPowerOfTwo(int val)
+{
+	if (isPowerOfTwo(val)) {
+		return val * 2;
+	}
+	return 0;
+}
+
 bool isPowerOfTwo(int val)
 {
-	
+	if (val == 0) {
+		return 0;
+	}
+	while (val != 1) {
+		if (val % 2 != 0) {
+			return 0;
+		}
+		val /= 2;
+
+	}
+	return 1;
+}
+
+float moveTowards(float current, float target, float maxDelta)
+{
+	if ((target - current) <= maxDelta) {
+		return target;
+	}
+	else {
+		return maxDelta;
+	}
+
 }

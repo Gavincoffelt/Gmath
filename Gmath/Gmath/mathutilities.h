@@ -18,6 +18,9 @@ int abs(int val);
 
 int pow(int base, int power);
 
+int nextPowerOfTwo(int val);
+
 bool isPowerOfTwo(int val);
+
 
 float moveTowards(float current, float target, float maxDelta);

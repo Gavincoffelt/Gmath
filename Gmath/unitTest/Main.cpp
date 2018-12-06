@@ -2,8 +2,10 @@
 #include "mathutilities.h"
 
 int main() {
-	
-	std::cout << pow(2,4) << std::endl;
 
-	return 0;
+
+	std::cout << moveTowards(5,5,50) << std::endl;
+
+	
+ 	return 0;
 }
