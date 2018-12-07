@@ -58,5 +58,5 @@ bool vec2::operator!=(const vec2 & rhs) const
 
 vec2 vec2::operator-() const
 {
-	return vec2();
+
 }
