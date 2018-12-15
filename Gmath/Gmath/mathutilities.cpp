@@ -42,7 +42,6 @@ int abs(int val)
 		return -val;
 	}
 
-
 }
 
 int pow(int base, int power)
@@ -85,6 +84,44 @@ float moveTowards(float current, float target, float maxDelta)
 	}
 	else {
 		return maxDelta;
+	}
+
+}
+
+bool assert(const char * testName, bool expression)
+{
+	if (expression == true) {
+		std::cout << "[PASS]" << testName << std::endl;
+		return true;
+	}
+	else {
+		std::cout << "[FAIL]" << testName << std::endl;
+		return false;
+	}
+	
+}
+
+bool assert(const char * testName, int expected, int actual)
+{
+	if (expected == actual) {
+		std::cout << "[PASS]" << testName << std::endl;
+		return true;
+	}
+	else {
+		std::cout << "[FAIL]" << testName << std::endl;
+		return false;
+	}
+}
+
+bool assert(const char * testName, float expected, float actual, float tolerance)
+{
+	if (expected >= (actual - tolerance) && expected <= (actual + tolerance)) {
+		std::cout << "[PASS]" << testName << std::endl;
+		return true;
+	}
+	else {
+		std::cout << "[FAIL]" << testName << std::endl;
+		return false;
 	}
 
 }

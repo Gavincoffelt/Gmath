@@ -2,21 +2,21 @@
 
 vec2::vec2()
 {
-	x = 2;
-	y = 2;
+	xpos = 0;
+	ypos = 0;
 }
 
 vec2::vec2(float x, float y)
 {
-	this->x = x;
-	this->y = y;
+	this->xpos = x;
+	this->ypos = y;
 }
 
 vec2 vec2::operator+(const vec2 & rhs) const
 {
 	vec2 vec;
-	vec.x = x + rhs.x;
-	vec.y = y + rhs.y;
+	vec.xpos = xpos + rhs.xpos;
+	vec.ypos = ypos + rhs.ypos;
 
 	return vec;
 }
@@ -24,16 +24,17 @@ vec2 vec2::operator+(const vec2 & rhs) const
 vec2 vec2::operator-(const vec2 & rhs) const
 {
 	vec2 vec;
-	vec.x = x - rhs.x;
-	vec.y = y - rhs.y;
+	vec.xpos = xpos + rhs.xpos;
+	vec.ypos = ypos + rhs.ypos;
+
 
 	return vec;
 }
 
 vec2 & vec2::operator+=(const vec2 & rhs)
 {
-	x += rhs.x;
-	y += rhs.y;
+	xpos += rhs.xpos;
+	ypos += rhs.ypos;
 
 	return *this;
 }
@@ -41,52 +42,55 @@ vec2 & vec2::operator+=(const vec2 & rhs)
 vec2 & vec2::operator-=(const vec2 & rhs)
 {
 
-	x -= rhs.x;
-	y -= rhs.y;
+	xpos -= rhs.xpos;
+	ypos -= rhs.ypos;
 
 	return *this;
 }
 
 bool vec2::operator==(const vec2 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON) && x <= (rhs.x + FLT_EPSILON)) &&
-		(y >= (rhs.y - FLT_EPSILON) && y <= (rhs.y + FLT_EPSILON))) {
-		return true;
-	}
-	return false;
+	return ((xpos >= (rhs.xpos - FLT_EPSILON) && xpos <= (rhs.xpos + FLT_EPSILON)) &&
+		(ypos >= (rhs.ypos - FLT_EPSILON) && ypos <= (rhs.ypos + FLT_EPSILON)));
+	
 }
 
 bool vec2::operator!=(const vec2 & rhs) const
 {
-	if ((x >= (rhs.x - FLT_EPSILON) && x <= (rhs.x + FLT_EPSILON)) &&
-		(y >= (rhs.y - FLT_EPSILON) && y <= (rhs.y + FLT_EPSILON))) {
-		return false;
-	}
-	return true;
+	return !((xpos >= (rhs.xpos - FLT_EPSILON) && xpos <= (rhs.xpos + FLT_EPSILON)) &&
+		(ypos >= (rhs.ypos - FLT_EPSILON) && ypos <= (rhs.ypos + FLT_EPSILON)));
+	
 
 }
 
 vec2 vec2::operator-() const
 {
 	vec2 vec;
-	vec.x = -x;
-	vec.y = -y;
+	vec.xpos = -xpos;
+	vec.ypos = -ypos;
 	return vec;
 }
 
 float vec2::magnitude() const
 {
-	float magnitude = (x * x + y * y);
+	float magnitude = (xpos * xpos + ypos * ypos);
 	
 	sqrt(magnitude);
 
 	return magnitude;
 }
 
+float vec2::dot(const vec2 & rhs) const
+{
+	return ((xpos * rhs.xpos) + (ypos * rhs.ypos));
+}
+
 vec2 & vec2::normalize()
 {
-	
-	
+	float mag = magnitude();
+	xpos /= mag;
+	ypos /= mag;
+	return *this;
 }
 
 vec2 vec2::getNormalized() const
@@ -94,37 +98,53 @@ vec2 vec2::getNormalized() const
 	vec2 normal;
 	float mag = normal.magnitude();
 	std::cout << mag << std::endl;
-	normal.x = x / mag;
-	normal.y = y / mag;
+	normal.xpos = xpos / mag;
+	normal.ypos = ypos / mag;
 	return normal;
 }
-//
-//vec2 & vec2::scale(const vec2 & rhs)
-//{
-//	
-//}
-//
-//vec2 vec2::getScaled(const vec2 & rhs) const
-//{
-//	
-//}
-//
-//vec2 vec2::operator*(const float rhs) const
-//{
-//	
-//}
-//
-//vec2 & vec2::operator*=(const float rhs)
-//{
-//	
-//}
-//
-//vec2 & vec2::operator/=(const float rhs)
-//{
-//	
-//}
-//
-//vec2 operator*(const float lhs, const vec2 & rhs)
-//{
-//	
-//}
+
+vec2 & vec2::scale(const vec2 & rhs)
+{
+	xpos = xpos * rhs.xpos;
+	ypos = ypos * rhs.ypos;
+	return *this;
+}
+
+vec2 vec2::getScaled(const vec2 & rhs) const
+{
+	vec2 scaled{ xpos, ypos };
+	scaled.xpos = scaled.xpos * rhs.xpos;
+	scaled.ypos = scaled.ypos * rhs.ypos;
+	return scaled;
+}
+
+vec2 vec2::operator*(const float rhs) const
+{
+	vec2 times;
+	times.xpos = xpos * rhs;
+	times.ypos = ypos * rhs;
+	return times;
+}
+
+vec2 & vec2::operator*=(const float rhs)
+{
+	xpos *= rhs;
+	ypos *= rhs;
+	return *this;
+}
+
+vec2 & vec2::operator/=(const float rhs)
+{
+	
+	 xpos /= rhs;
+	 ypos /= rhs;
+	 return *this;
+}
+
+vec2 operator*(const float lhs, const vec2 & rhs)
+{
+	vec2 bob;
+	bob.xpos = lhs * rhs.xpos;
+	bob.ypos = lhs * rhs.ypos;
+	return bob;
+}

@@ -3,7 +3,7 @@
 #include <cfloat>
 #include <iostream>
 struct vec2 {
-	float x; float y;
+	float xpos; float ypos;
 	vec2();
 	vec2(float x, float y);
 
@@ -19,6 +19,7 @@ struct vec2 {
 	vec2 operator-() const;
 
 	float magnitude() const;
+	float dot(const vec2 &rhs) const;
 
 	vec2 &normalize();
 	vec2 getNormalized() const;
@@ -31,7 +32,7 @@ struct vec2 {
 
 	vec2 &operator*=(const float rhs);
 	vec2 &operator/=(const float rhs);
-
+	
 
 
 

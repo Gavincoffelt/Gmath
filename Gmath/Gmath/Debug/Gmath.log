@@ -1,3 +1,6 @@
 ﻿  Vector2.cpp
-c:\users\s189067\source\repos\gmath\gmath\vector2.cpp(93): warning C4172: returning address of local variable or temporary: temp
+  mathutilities.cpp
+  Generating Code...
+c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(45): warning C4715: 'abs': not all control paths return a value
+c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(34): warning C4715: 'clamp': not all control paths return a value
   Gmath.vcxproj -> C:\Users\s189067\source\repos\Gmath\Debug\Gmath.lib

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 const double PI = 3.141592653589793238;
 
 const double DEG_TO_RAD = PI / 180.0f;
@@ -22,5 +23,33 @@ int nextPowerOfTwo(int val);
 
 bool isPowerOfTwo(int val);
 
-
 float moveTowards(float current, float target, float maxDelta);
+
+bool assert(const char * testName, bool expression);
+
+bool assert(const char * testName, int expected, int actual);
+
+bool assert(const char * testName, float expected, float actual, float tolerance);
+
+
+template<typename T>
+inline T lerp(const T & a, const T & b, float t)
+{
+	
+	//return a + (b - a) * t;
+	
+	return a * (1 - t) + b * t;
+}
+
+
+template <typename T>
+T linearEase(float t, const T& b, const T& c, float d)
+{
+	return b + c * (t / d);
+}
+
+template <typename T>
+T easeInSine(float t, const T& b, const T& c, float d)
+{
+	return b + c - c * cosf(t / d * HALF_PI);
+}

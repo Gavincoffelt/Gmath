@@ -1,17 +1,9 @@
 #include <iostream>
 #include "mathutilities.h"
 #include "Vector2.h"
+#include "vec3.h"
+#include "vec4.h"
 int main() {
-
-	vec2 bob;
-
-	std::cout << bob.magnitude() << std::endl;
-
-	bob.normalize();
-
-	std::cout << bob.magnitude() << std::endl;
-
-
 
 
 	
