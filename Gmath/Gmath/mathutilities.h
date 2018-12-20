@@ -7,7 +7,7 @@ const double DEG_TO_RAD = PI / 180.0f;
 const double RAD_TO_DEG = 180.0f/ PI;
 
 
-
+int sum(int a, int b);
 
 int min(int a, int b);
 
@@ -52,4 +52,12 @@ template <typename T>
 T easeInSine(float t, const T& b, const T& c, float d)
 {
 	return b + c - c * cosf(t / d * HALF_PI);
+}
+
+template <typename T>
+T quadraticBezier(const T& a, const T& b, const T& c, float t)
+{
+	T x = lerp(a, b, t);
+	T y = lerp(b, c, t);
+	return lerp(x, y, t);
 }
