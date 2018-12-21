@@ -125,6 +125,7 @@ bool assert(const char * testName, float expected, float actual, float tolerance
 		return true;
 	}
 	else {
+
 		std::cout << "[FAIL]" << testName << std::endl;
 		return false;
 	}
