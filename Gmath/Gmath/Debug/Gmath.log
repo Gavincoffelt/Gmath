@@ -1,1 +1,16 @@
-﻿
+﻿  mat3.cpp
+  mathutilities.cpp
+  rand.cpp
+c:\users\s189067\source\repos\gmath\gmath\rand.cpp(12): warning C4305: 'initializing': truncation from 'unsigned __int64' to 'unsigned int'
+c:\users\s189067\source\repos\gmath\gmath\rand.cpp(12): warning C4309: 'initializing': truncation of constant value
+  transform2d.cpp
+  vec3.cpp
+  vec4.cpp
+  Vector2.cpp
+  Generating Code...
+c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(39): warning C4715: 'clamp': not all control paths return a value
+c:\users\s189067\source\repos\gmath\gmath\mathutilities.cpp(50): warning C4715: 'abs': not all control paths return a value
+c:\users\s189067\source\repos\gmath\gmath\mat3.cpp(126): warning C4172: returning address of local variable or temporary: arr
+c:\users\s189067\source\repos\gmath\gmath\mat3.cpp(182): warning C4172: returning address of local variable or temporary: result
+c:\users\s189067\source\repos\gmath\gmath\mat3.cpp(135): warning C4172: returning address of local variable or temporary: arr
+  Gmath.vcxproj -> C:\Users\s189067\source\repos\Gmath\Debug\Gmath.lib
