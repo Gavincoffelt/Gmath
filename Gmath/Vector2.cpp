@@ -50,20 +50,16 @@ vec2 & vec2::operator-=(const vec2 & rhs)
 
 bool vec2::operator==(const vec2 & rhs) const
 {
-	if ((xpos >= (rhs.xpos - FLT_EPSILON) && xpos <= (rhs.xpos + FLT_EPSILON)) &&
-		(ypos >= (rhs.ypos - FLT_EPSILON) && ypos <= (rhs.ypos + FLT_EPSILON))) {
-		return true;
-	}
-	return false;
+	return ((xpos >= (rhs.xpos - FLT_EPSILON) && xpos <= (rhs.xpos + FLT_EPSILON)) &&
+		(ypos >= (rhs.ypos - FLT_EPSILON) && ypos <= (rhs.ypos + FLT_EPSILON)));
+	
 }
 
 bool vec2::operator!=(const vec2 & rhs) const
 {
-	if ((xpos >= (rhs.xpos - FLT_EPSILON) && xpos <= (rhs.xpos + FLT_EPSILON)) &&
-		(ypos >= (rhs.ypos - FLT_EPSILON) && ypos <= (rhs.ypos + FLT_EPSILON))) {
-		return false;
-	}
-	return true;
+	return !((xpos >= (rhs.xpos - FLT_EPSILON) && xpos <= (rhs.xpos + FLT_EPSILON)) &&
+		(ypos >= (rhs.ypos - FLT_EPSILON) && ypos <= (rhs.ypos + FLT_EPSILON)));
+	
 
 }
 
@@ -82,6 +78,11 @@ float vec2::magnitude() const
 	sqrt(magnitude);
 
 	return magnitude;
+}
+
+float vec2::dot(const vec2 & rhs) const
+{
+	return ((xpos * rhs.xpos) + (ypos * rhs.ypos));
 }
 
 vec2 & vec2::normalize()
@@ -111,9 +112,7 @@ vec2 & vec2::scale(const vec2 & rhs)
 
 vec2 vec2::getScaled(const vec2 & rhs) const
 {
-	vec2 scaled;
-	scaled.xpos = xpos;
-	scaled.ypos = ypos;
+	vec2 scaled{ xpos, ypos };
 	scaled.xpos = scaled.xpos * rhs.xpos;
 	scaled.ypos = scaled.ypos * rhs.ypos;
 	return scaled;
@@ -129,18 +128,17 @@ vec2 vec2::operator*(const float rhs) const
 
 vec2 & vec2::operator*=(const float rhs)
 {
-	vec2 times;
-	times.xpos = xpos *= rhs;
-	times.ypos = ypos *= rhs;
-	return times;
+	xpos *= rhs;
+	ypos *= rhs;
+	return *this;
 }
 
 vec2 & vec2::operator/=(const float rhs)
 {
-	vec2 times;
-	times.xpos = xpos /= rhs;
-	times.ypos = ypos /= rhs;
-	return times;
+	
+	 xpos /= rhs;
+	 ypos /= rhs;
+	 return *this;
 }
 
 vec2 operator*(const float lhs, const vec2 & rhs)

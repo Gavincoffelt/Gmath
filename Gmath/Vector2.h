@@ -19,6 +19,7 @@ struct vec2 {
 	vec2 operator-() const;
 
 	float magnitude() const;
+	float dot(const vec2 &rhs) const;
 
 	vec2 &normalize();
 	vec2 getNormalized() const;
@@ -31,7 +32,7 @@ struct vec2 {
 
 	vec2 &operator*=(const float rhs);
 	vec2 &operator/=(const float rhs);
-
+	
 
 
 
