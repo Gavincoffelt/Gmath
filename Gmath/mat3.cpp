@@ -144,7 +144,6 @@ vec3 & mat3::operator[](const int index)
 const vec3 & mat3::operator[](const int index) const
 {
 	return axis[index];
-
 }
 
 mat3 mat3::operator*(const mat3 & rhs) const

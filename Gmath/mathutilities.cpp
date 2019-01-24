@@ -36,9 +36,9 @@ int clamp(int value, int min, int max)
 	else if (value > max) {
 		return max;
 	}
-	else {
+
 		return 0;
-	}
+	
 }
 
 int abs(int val)
@@ -49,9 +49,7 @@ int abs(int val)
 	else if (val < 0) {
 		return -val;
 	}
-	else {
-		return 0;
-	}
+	return 0;
 }
 
 int pow(int base, int power)

@@ -2,6 +2,10 @@
 
 transform2d::transform2d()
 {
+	localPos = { 0, 0 };
+	localRot = 0;
+	localScale = { 1, 1 };
+	parent = NULL;
 }
 
 void transform2d::translate(const vec2 & offset)
@@ -38,7 +42,7 @@ mat3 transform2d::getTRSMatrix() const
 vec2 transform2d::worldPosition() const
 {
 	mat3 result;
-	if (parent != nullptr) {
+	if (parent != NULL) {
 		result = parent->getTRSMatrix() * getTRSMatrix();
 		}
 	else {
@@ -52,13 +56,13 @@ vec2 transform2d::worldPosition() const
 float transform2d::worldRotation() const
 {
 	mat3 result;
-	if (parent != nullptr) {
+	if (parent != NULL) {
 		result = parent->getTRSMatrix() * getTRSMatrix();
 	}
 	else {
 		result = getTRSMatrix();
 	}
-	float jim = { result.m7};
+	float jim = { result.m1};
 
 	return jim;
 }
